@@ -5,9 +5,10 @@
  */
 package br.ifam.conexao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
 
 /**
  *
@@ -15,17 +16,30 @@ import javax.persistence.Persistence;
  */
 public class ConnectionFactory {
 
-    private static EntityManagerFactory em;
+    private static SessionFactory sessionFactory;
+    private static ServiceRegistry serviceRegistry;
 
-    public static EntityManager getEntityManager() {
-        if (em == null || !em.isOpen()) {
-            System.out.println("Criando EntityManager....");
-            em = Persistence.createEntityManagerFactory("DRA_PROJETO_JSF_JPA_PRIMEFACES");
+    public static SessionFactory createSessionFactory() {
+        try {
+            // Create the SessionFactory from hibernate.cfg.xml
+            Configuration configuration = new Configuration();
+            configuration.configure("hibernate.cfg.xml");
+            System.out.println("Hibernate Annotation Configuration loaded");
+            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+            System.out.println("Hibernate Annotation serviceRegistry created");
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            return sessionFactory;
+        } catch (Throwable ex) {
+            // Make sure you log the exception, as it might be swallowed
+            System.err.println("Initial SessionFactory creation failed." + ex);
+            throw new ExceptionInInitializerError(ex);
         }
-        return em.createEntityManager();
     }
 
-    public static void closeEntityFactory() {
-        em.close();
+    public static SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
+            sessionFactory = createSessionFactory();
+        }
+        return sessionFactory;
     }
 }
