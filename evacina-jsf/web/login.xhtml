@@ -32,10 +32,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-        <a href="index.html"><button class="btn btn-outline-light my-2 my-sm-0" type="submit">
-          <i class="fas fa-undo-alt"></i> Voltar
-        </button></a>
-        </ul>
+                <h:link outcome="index.xhtml" class="btn btn-outline-light my-2 my-sm-0" value="Voltar">
+                     <i class="fas fa-undo-alt"></i>
+                </h:link>
+            </ul>
     </div>
 
     </nav>
@@ -48,7 +48,8 @@
       <h:form class="form-signin">
         <p align="center"><h:graphicImage library="img" name="logo-100.png"  /></p>
         <h:outputLabel for="id" class="sr-only">Matrícula</h:outputLabel>
-        <h:inputText id="id" class="form-control" value="#{atendenteBean.id}" a:placeholder="Matricula" required="true"/>    
+        <h:inputText id="id" class="form-control" value="#{atendenteBean.id}" a:placeholder="Matricula" required="true"/>
+        <br></br>
         <h:outputLabel for="senha" class="sr-only">Senha</h:outputLabel>
         <h:inputSecret id="senha" class="form-control" value="#{atendenteBean.senha}" a:placeholder="Senha" required="true"/>
 <!--            
@@ -58,7 +59,7 @@
                 <h:selectBooleanCheckbox value="remember-me"/> Lembrar-me
           </label>
         </div>-->
-<h:commandButton class="btn btn-lg btn-primary btn-block" action="#{atendenteBean.login()}">Entrar</h:commandButton>
+<h:commandButton class="btn btn-lg btn-primary btn-block" value="Entrar" action="#{atendenteBean.login()}"></h:commandButton>
       </h:form>
     </div> 
 
