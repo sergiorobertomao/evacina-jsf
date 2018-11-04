@@ -31,6 +31,13 @@ public class Paciente implements Serializable {
         this.nascimento = nascimento;
     }
 
+    public Paciente(long sus, String nome, String sexo, String nascimento) {
+        this.sus = sus;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.nascimento = nascimento;
+    }
+
     
     
     public Paciente(long sus, String nome, String sexo, String nascimento, List<Vacinacao> vacinacao) {

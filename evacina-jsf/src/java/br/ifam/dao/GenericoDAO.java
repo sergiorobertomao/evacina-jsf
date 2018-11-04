@@ -7,6 +7,8 @@ package br.ifam.dao;
 
 import br.ifam.util.HibernateUtil;
 import java.io.Serializable;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -70,5 +72,16 @@ public class GenericoDAO<T extends Serializable> {
         }finally{
             session.close();
         }
+    }
+    
+    public List<T> findAll(Class<T> obj){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        return session.createQuery("Select t from " + obj.getSimpleName() + " t").list();
+    }
+    public List<T> findByNome(Class<T> obj, String procura, String coluna){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("Select t from " + obj.getSimpleName() + " as t WHERE t."+coluna+" LIKE :param");
+        query.setParameter("param", "%"+procura+"%");
+        return query.list();
     }
 }
