@@ -54,11 +54,9 @@
                         <li>&nbsp;</li>
 
                         <li class="nav-item">
-                          <a href="#" title="Sair">
-                            <button class="btn btn-outline-light my-2 my-sm-0">
-                              <i class="fas fa-sign-out-alt"></i>
-                            </button>
-                          </a>
+                            <h:link outcome="/index.xhtml" class="btn btn-outline-light my-2 my-sm-0" value="Sair">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </h:link>
                         </li>
                     </ul>
                 </div>
@@ -77,47 +75,46 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-usuarios-listar.html">
-                            <i class="fas fa-users"></i>
-                            Pacientes
-                          </a>
+                            <h:link class="nav-link text-secondary" outcome="paciente/index.xhtml">
+                                <i class="fas fa-users"></i>
+                                Pacientes
+                            </h:link>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                            <i class="fas fa-syringe"></i>
-                            &nbsp;Vacinas
-                          </a>
+                            <h:link class="nav-link text-secondary" outcome="vacina/index.xhtml">
+                                <i class="fas fa-syringe"></i>
+                                Vacinas
+                            </h:link>
                         </li>
+<!--                        <li class="nav-item">
+                            <h:link value="Doses" class="nav-link text-secondary" outcome="#">
+                                <i class="fa-prescription-bottle"></i>
+                            </h:link>
+                        </li>-->
                         <li class="nav-item">
-                         <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                           <i class="fas fa-prescription-bottle"></i>
-                           &nbsp;Doses
-                         </a>
-                       </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                            <i class="far fa-hospital"></i>
-                            &nbsp;Postos de Vacina
-                          </a>
+                            <h:link class="nav-link text-secondary" outcome="local/index.xhtml">
+                                <i class="fas fa-hospital"></i>
+                                Postos de Vacina
+                            </h:link>
                         </li>
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                           <a class="nav-link text-secondary" href="#">
                             <i class="fas fa-chart-line"></i>
                             Estatísticas
                           </a>
+                        </li>-->
+                        <li class="nav-item">
+                            <h:link  class="nav-link text-secondary" outcome="atendente/index.xhtml">
+                                <i class="fas fa-user-circle"></i>
+                                Usuários
+                            </h:link>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-user-circle"></i>
-                            Usuários
-                          </a>
+                            <h:link class="nav-link text-secondary" outcome="/index.xhtml">
+                                <i class="fa-sign-out-alt"></i>
+                                Sair
+                            </h:link>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Sair
-                          </a>
-                        </li>  
                   </ul>
               </div>
             </nav> 

@@ -50,18 +50,18 @@ public class AtendenteBean {
         dao.save(atendente);
     }
     
-    public void login(){
+    public String login(){
         GenericoDAO<Atendente> dao = new GenericoDAO<>();
         Atendente atendente = dao.findById(Atendente.class, id);
         
         if(atendente!=null){
             if(atendente.getSenha().equals(senha)){
-                System.out.println("Entrou usuário");
+                return "/admin/index.xhtml?faces-redirect=true";
             }else{
-                System.out.println("Senha errada");
+               return "login.xhtml";
             }
         }
-        
+        return "login.xhtml";
     }
 
     
