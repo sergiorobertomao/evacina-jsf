@@ -14,7 +14,7 @@ import javax.faces.bean.ManagedBean;
  *
  * @author gustav0
  */
-@ManagedBean
+@ManagedBean 
 public class PacienteBean {
     
     private String nome;
@@ -41,8 +41,6 @@ public class PacienteBean {
     public void setPesquisa(String pesquisa) {
         this.pesquisa = pesquisa;
     }
-
-
 
     public String getNome() {
         return nome;
@@ -75,8 +73,6 @@ public class PacienteBean {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-
-    
     
     public List<Paciente> getPacientes() {
         return pacientes;
