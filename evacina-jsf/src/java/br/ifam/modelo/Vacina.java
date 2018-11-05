@@ -13,10 +13,27 @@ public class Vacina implements Serializable {
     private long id;
     private String nome;
     private String descricao;
+    private String lote;
 
-    public Vacina(String nome, String descricao) {
+    public String getLote() {
+        return lote;
+    }
+
+    public void setLote(String lote) {
+        this.lote = lote;
+    }
+
+    public Vacina(String nome, String descricao,String lote) {
         this.nome = nome;
         this.descricao = descricao;
+        this.lote = lote;
+    }
+
+    public Vacina(long id,String nome, String descricao,String lote) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.lote = lote;
     }
 
     
