@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/src/java/br/ifam/bean/PacienteBean.java</file>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/web/admin/paciente/index.xhtml</file>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/web/admin/paciente/alterar.xhtml</file>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/src/java/br/ifam/modelo/Paciente.java</file>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/web/admin/paciente/cadastrar.xhtml</file>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/src/java/br/ifam/dao/GenericoDAO.java</file>
+            <file>file:/C:/Users/gustav0/Documents/GitHub/evacina-jsf/evacina-jsf/src/java/br/ifam/bean/AtendenteBean.java</file>
+        </group>
+    </open-files>
+</project-private>
