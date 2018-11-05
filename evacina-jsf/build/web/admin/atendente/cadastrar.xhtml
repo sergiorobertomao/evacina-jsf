@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
-   
+
     <h:head>
         <title>E-Vacina</title>
         <!--CSS-->
@@ -12,178 +12,156 @@
         <h:outputStylesheet library="css" name="style.css" />
         <h:outputStylesheet library="css" name="upload-img-exibir.css" />
     </h:head>
-     
+
     <h:body>
-    <f:view>
- <nav class="navbar navbar-expand-lg navbar-white bg-primary">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <f:view>
+            <nav class="navbar navbar-expand-lg navbar-white bg-primary">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
 
-        <a class="navbar-brand" href="/">
-            <h:graphicImage library="img" name="logo-topo.png"  />
-        </a>
-
-        
-
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <h4 class="text-light">
-                Console de Administração
-              </h4>
-            </ul>
-        </div>
+                <a class="navbar-brand" href="/">
+                    <h:graphicImage library="img" name="logo-topo.png"  />
+                </a>
 
 
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <h4 class="text-light">
+                            Console de Administração
+                        </h4>
+                    </ul>
+                </div>
+
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                          <a href="#" title="Usuário">
-                            <button class="btn btn-outline-light my-2 my-sm-0">
-                              <i class="far fa-user-circle"></i>
-                              <i> Nome Usuário </i>
-                            </button>
-                          </a>
+                            <a href="#" title="Usuário">
+                                <button class="btn btn-outline-light my-2 my-sm-0">
+                                    <i class="far fa-user-circle"></i>
+                                    <i> Nome Usuário </i>
+                                </button>
+                            </a>
                         </li>
 
                         <li>&nbsp;</li>
 
                         <li class="nav-item">
-                          <a href="#" title="Sair">
-                            <button class="btn btn-outline-light my-2 my-sm-0">
-                              <i class="fas fa-sign-out-alt"></i>
-                            </button>
-                          </a>
+                            <a href="#" title="Sair">
+                                <button class="btn btn-outline-light my-2 my-sm-0">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </nav>
-       
-    <div class="container-fluid">
-          <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-              <div class="sidebar-sticky">
 
-                <ul class="nav flex-column">
-                        <li class="nav-item">
-                          <a class="nav-link active text-secondary" href="#">
-                            <i class="fas fa-home"></i>
-                            &nbsp;Início <span class="sr-only">(current)</span>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-usuarios-listar.html">
-                            <i class="fas fa-users"></i>
-                            Pacientes
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                            <i class="fas fa-syringe"></i>
-                            &nbsp;Vacinas
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                         <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                           <i class="fas fa-prescription-bottle"></i>
-                           &nbsp;Doses
-                         </a>
-                       </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                            <i class="far fa-hospital"></i>
-                            &nbsp;Postos de Vacina
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-chart-line"></i>
-                            Estatísticas
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-user-circle"></i>
-                            Usuários
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Sair
-                          </a>
-                        </li>  
-                  </ul>
-              </div>
-            </nav> 
-<!--MENU LATERAL FIM -->
+            <!-- COMEÇO MENU LATERAL -->
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-secondary" href="#">
+                                        <i class="fas fa-home"></i>
+                                        &nbsp;Início <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <h:link class="nav-link text-secondary" outcome="/admin/paciente/index.xhtml">
+                                        <i class="fas fa-users"></i>
+                                        Pacientes
+                                    </h:link>
+                                </li>
+                                <li class="nav-item">
+                                    <h:link class="nav-link text-secondary" outcome="/admin/vacina/index.xhtml">
+                                        <i class="fas fa-syringe"></i>
+                                        Vacinas
+                                    </h:link>
+                                </li>
+                                <!--                        <li class="nav-item">
+                                                            <h:link value="Doses" class="nav-link text-secondary" outcome="#">
+                                                                <i class="fa-prescription-bottle"></i>
+                                                            </h:link>
+                                                        </li>-->
+                                <li class="nav-item">
+                                    <h:link class="nav-link text-secondary" outcome="/admin/local/index.xhtml">
+                                        <i class="fas fa-hospital"></i>
+                                        Postos de Vacina
+                                    </h:link>
+                                </li>
+                                <!--                        <li class="nav-item">
+                                                          <a class="nav-link text-secondary" href="#">
+                                                            <i class="fas fa-chart-line"></i>
+                                                            Estatísticas
+                                                          </a>
+                                                        </li>-->
+                                <li class="nav-item">
+                                    <h:link  class="nav-link text-secondary" outcome="/admin/atendente/index.xhtml">
+                                        <i class="fas fa-user-circle"></i>
+                                        Usuários
+                                    </h:link>
+                                </li>
+                                <li class="nav-item">
+                                    <h:link class="nav-link text-secondary" outcome="/index.xhtml">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Sair
+                                    </h:link>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav> 
+
+                    <!-- FIM MENU LATERAL -->
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Cadastrar Usuário</h1>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                            </div>
+                        </div>
+                        <div>
+
+                            <h:form>
+                                <div class="form-group">
+                                    <h:outputLabel value="Nome do Atendente" for="nome"></h:outputLabel>
+                                    <h:inputText id="nome" class="form-control" value="#{atendenteBean.nome}" a:placeholder="Nome do Usuario"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel value="Matrícula" for="id"></h:outputLabel>
+                                    <h:inputText id="id" class="form-control" value="#{atendenteBean.id}" a:placeholder="Matrícula"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputLabel value="Senha" for="senha"></h:outputLabel>
+                                    <h:inputText id="senha" class="form-control" value="#{atendenteBean.senha}" a:placeholder="Senha"/>
+                                </div>
+                                <h:commandButton value="Salvar" class="btn btn-outline-primary"  action="#{atendenteBean.salvar()}" />
+                                <h:link class="btn btn-outline-primary" value="Voltar" outcome="index.xhtml"></h:link>
+                            </h:form>
+
+                        </div>
 
 
-
-
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Cadastrar Usuário</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
+                    </main>
+                </div>
             </div>
-        </div>
 
 
-<div>
-
-<h:form>
-
-   
- 
-
-
-
- <div class="form-group">
-    <label>Nome do Usuário</label>
-    <h:inputText id="nomeusuario" class="form-control" value="" a:placeholder="Nome do Usuario"/>
-  </div>
-
-  <div class="form-group">
-    <label>Matrícula</label>
-    <h:inputText id="matricula" class="form-control" value="" a:placeholder="Matrícula"/>
-  </div>
-
-  <div class="form-group">
-    <label>Senha</label>
-    <h:inputText id="senha" class="form-control" value="" a:placeholder="Senha"/>
-  </div>
-
-
-
-<h:commandButton value="Salvar" class="btn btn-outline-primary" type="submit" action="#{acao.aqui}" />
-<a class="btn btn-outline-primary" href="adm-postagens-listar.html">Voltar</a>
-</h:form>
-    
-</div>
-
-
-</main>
-
-              
-
-
-
-
-
-              
-            </div>
-          </div>
-
-   
-    </f:view>    
+        </f:view>    
     </h:body>
-        <!--JS-->
-        <h:outputScript library="js" name="jquery.js" />
-        <h:outputScript library="js" name="bootstrap.min.js" />
-        <h:outputScript library="js" name="fontawesome-all.js" />
-        <h:outputScript library="js" name="upload-img-exibir.js" />
+    <!--JS-->
+    <h:outputScript library="js" name="jquery.js" />
+    <h:outputScript library="js" name="bootstrap.min.js" />
+    <h:outputScript library="js" name="fontawesome-all.js" />
+    <h:outputScript library="js" name="upload-img-exibir.js" />
 </html>

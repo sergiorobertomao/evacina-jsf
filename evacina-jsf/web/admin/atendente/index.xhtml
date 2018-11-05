@@ -125,95 +125,49 @@
                             <!-- FIM MENU LATERAL -->
         
         
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Usuários</h1>
+            <h1 class="h2">Atendentes</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
-                <h:form>
-                    <h:inputText id="search" size="50" class="form-control" a:placeholder="Pesquisar Usuário"/>
+                  <h:form class="form-inline">
+                      <h:inputText id="search" size="50" class="form-control" value="#{atendenteBean.pesquisa}" a:placeholder="Pesquisar Paciente"/>
+                    &nbsp;
+                    <h:commandButton value="Pesquisar" action="#{atendenteBean.pesquisar()}" class="btn btn-outline-info"></h:commandButton>
+                    &nbsp;
+                    <h:link class="btn btn-outline-info" value="Novo paciente" outcome="cadastrar.xhtml"></h:link>
                 </h:form>
-                <span>&nbsp;</span>
-                <h:form><h:commandButton class="btn btn-outline-info" value="Pesquisar" type="button" action="#{acao.aqui}" /></h:form>
-                <span>&nbsp;</span>
-                <h:form><h:commandButton class="btn btn-outline-info" value="Novo Usuário" type="button" action="#{acao.aqui}" /></h:form>
               </div>
             </div>
-          </div>
-            
+          </div>            
             <h:form>
-            <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nome do Usuario</th>
-                  <th>Matricula</th>
-                  <th>Senha</th>
-                  <th>Funções</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr>
-                  <td>1</td>
-                  <td>Fernando Gurgel</td>
-                  <td>000696969</td>
-                  <td>**********</td>
-                  <td>
-                    <h:commandButton class="btn btn-outline-info btn-sm" value="Editar" type="button" action="#{acao.aqui}" />
-                    <span>&nbsp;</span>
-                    <h:commandButton class="btn btn-outline-danger btn-sm" value="Excluir" type="button" action="#{acao.aqui}" />
-                  </td>
-                </tr>
-                  <tr>
-                  <td>2</td>
-                  <td>Henrique Xvideos</td>
-                  <td>000111111</td>
-                  <td>**********</td>
-                  <td>
-                    <h:commandButton class="btn btn-outline-info btn-sm" value="Editar" type="button" action="#{acao.aqui}" />
-                    <span>&nbsp;</span>
-                    <h:commandButton class="btn btn-outline-danger btn-sm" value="Excluir" type="button" action="#{acao.aqui}" />
-                  </td>
-                </tr>
-
-               <tr>
-                  <td>3</td>
-                  <td>Gustavo Pornhub</td>
-                  <td>000181818</td>
-                  <td>**********</td>
-                  <td>
-                    <h:commandButton class="btn btn-outline-info btn-sm" value="Editar" type="button" action="#{acao.aqui}" />
-                    <span>&nbsp;</span>
-                    <h:commandButton class="btn btn-outline-danger btn-sm" value="Excluir" type="button" action="#{acao.aqui}" />
-                  </td>
-                </tr>
-
-               <tr>
-                  <td>4</td>
-                  <td>Raymison Cachorrão</td>
-                  <td>000788778</td>
-                  <td>**********</td>
-                  <td>
-                    <h:commandButton class="btn btn-outline-info btn-sm" value="Editar" type="button" action="#{acao.aqui}" />
-                    <span>&nbsp;</span>
-                    <h:commandButton class="btn btn-outline-danger btn-sm" value="Excluir" type="button" action="#{acao.aqui}" />
-                     </td>
-                </tr>
-            
-            
-            
-              </tbody>
-            </table>
-            </div>
+                <h:dataTable class="table table-striped table-sm" value="${atendenteBean.atendentes}" var="atendente">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Matricula"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="${atendente.id}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome do atendente"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="${atendente.nome}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Ações"></h:outputText>
+                    </f:facet>
+                    <h:commandLink value="Editar" class="btn btn-outline-info btn-sm" action="#{atendenteBean.visualizar(atendente)}"></h:commandLink>&nbsp;
+                    <h:commandLink value="Excluir" class="btn btn-outline-danger btn-sm" action="#{atendenteBean.excluir(atendente)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
             </h:form>
             
         </main>
               
         </div>
     </div>
-        
         
     </f:view>    
     </h:body>

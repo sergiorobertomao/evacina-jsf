@@ -7,6 +7,7 @@ package br.ifam.bean;
 
 import br.ifam.dao.GenericoDAO;
 import br.ifam.modelo.Atendente;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 /**
  *
@@ -19,6 +20,16 @@ public class AtendenteBean {
     private String nome;
     private String senha;
 
+    private String pesquisa;
+    
+    private List<Atendente> atendentes;
+
+    public AtendenteBean() {
+        GenericoDAO<Atendente> dao = new GenericoDAO<>();
+        atendentes = dao.findAll(Atendente.class);
+    }
+    
+    
     public Long getId() {
         return id;
     }
@@ -42,12 +53,57 @@ public class AtendenteBean {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+
+    public List<Atendente> getAtendentes() {
+        return atendentes;
+    }
+
+    public void setAtendentes(List<Atendente> atendentes) {
+        this.atendentes = atendentes;
+    }
     
     
-    public void salvar(){
+    
+    public String salvar(){
         GenericoDAO<Atendente> dao = new GenericoDAO<>();
-        Atendente atendente = new Atendente(nome, senha);
+        Atendente atendente = new Atendente(id,nome, senha);
         dao.save(atendente);
+        return "index.xhtml?faces-redirect=true";
+    }
+    
+    public String excluir(Atendente atendente){
+        GenericoDAO dao = new GenericoDAO();
+        dao.remove(Atendente.class, atendente.getId());
+        return "index.xhtml?faces-redirect=true";
+    }
+    
+    public String visualizar(Atendente atendente){
+        this.id = atendente.getId();
+        this.nome = atendente.getNome();
+        this.senha = atendente.getSenha();
+        return "alterar.xhtml";
+    }
+    
+    public String alterar(){
+        GenericoDAO dao = new GenericoDAO();
+        Atendente atendente = new Atendente(id,nome, senha);
+        dao.update(atendente);
+        return "index.xhtml?faces-redirect=true";
+    }
+    
+    public String pesquisar(){
+        GenericoDAO dao = new GenericoDAO();
+        atendentes.clear();
+         atendentes = dao.findByNome(Atendente.class, pesquisa, "nome");
+        return "index.xhtml";
     }
     
     public String login(){

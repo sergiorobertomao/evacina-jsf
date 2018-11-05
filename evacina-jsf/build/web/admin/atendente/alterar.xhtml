@@ -63,66 +63,66 @@
                 </div>
             </nav>
        
-    <div class="container-fluid">
-          <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-              <div class="sidebar-sticky">
-
-                <ul class="nav flex-column">
-                        <li class="nav-item">
-                          <a class="nav-link active text-secondary" href="#">
-                            <i class="fas fa-home"></i>
-                            &nbsp;Início <span class="sr-only">(current)</span>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-usuarios-listar.html">
-                            <i class="fas fa-users"></i>
-                            Pacientes
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                            <i class="fas fa-syringe"></i>
-                            &nbsp;Vacinas
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                         <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                           <i class="fas fa-prescription-bottle"></i>
-                           &nbsp;Doses
-                         </a>
-                       </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="adm-cliente-listar.html">
-                            <i class="far fa-hospital"></i>
-                            &nbsp;Postos de Vacina
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-chart-line"></i>
-                            Estatísticas
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-user-circle"></i>
-                            Usuários
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-secondary" href="#">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Sair
-                          </a>
-                        </li>  
-                  </ul>
-              </div>
-            </nav> 
-<!--MENU LATERAL FIM -->
-
-
+                           <!-- COMEÇO MENU LATERAL -->
+                       <div class="container-fluid">
+                        <div class="row">
+                            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                                <div class="sidebar-sticky">
+        
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active text-secondary" href="#">
+                                                <i class="fas fa-home"></i>
+                                                &nbsp;Início <span class="sr-only">(current)</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <h:link class="nav-link text-secondary" outcome="/admin/paciente/index.xhtml">
+                                                <i class="fas fa-users"></i>
+                                                Pacientes
+                                            </h:link>
+                                        </li>
+                                        <li class="nav-item">
+                                            <h:link class="nav-link text-secondary" outcome="/admin/vacina/index.xhtml">
+                                                <i class="fas fa-syringe"></i>
+                                                Vacinas
+                                            </h:link>
+                                        </li>
+                                        <!--                        <li class="nav-item">
+                                                                    <h:link value="Doses" class="nav-link text-secondary" outcome="#">
+                                                                        <i class="fa-prescription-bottle"></i>
+                                                                    </h:link>
+                                                                </li>-->
+                                        <li class="nav-item">
+                                            <h:link class="nav-link text-secondary" outcome="/admin/local/index.xhtml">
+                                                <i class="fas fa-hospital"></i>
+                                                Postos de Vacina
+                                            </h:link>
+                                        </li>
+                                        <!--                        <li class="nav-item">
+                                                                  <a class="nav-link text-secondary" href="#">
+                                                                    <i class="fas fa-chart-line"></i>
+                                                                    Estatísticas
+                                                                  </a>
+                                                                </li>-->
+                                        <li class="nav-item">
+                                            <h:link  class="nav-link text-secondary" outcome="/admin/atendente/index.xhtml">
+                                                <i class="fas fa-user-circle"></i>
+                                                Usuários
+                                            </h:link>
+                                        </li>
+                                        <li class="nav-item">
+                                            <h:link class="nav-link text-secondary" outcome="/index.xhtml">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                Sair
+                                            </h:link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav> 
+        
+                            <!-- FIM MENU LATERAL -->
+        
 
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -137,30 +137,22 @@
 
 <h:form>
 
-   
- 
-
-
-
  <div class="form-group">
-    <label>Nome do Usuário</label>
-    <h:inputText id="nomeusuario" class="form-control" value="" a:placeholder="Nome do Usuario"/>
+    <h:outputLabel value="Nome do atendente" for="nome"></h:outputLabel>
+    <h:inputText id="nome" class="form-control" value="#{atendenteBean.nome}" a:placeholder="Nome do Usuario"/>
   </div>
+
+    <h:inputHidden id="id" class="form-control" value="#{atendenteBean.id}" a:placeholder="Matrícula"/>
 
   <div class="form-group">
-    <label>Matrícula</label>
-    <h:inputText id="matricula" class="form-control" value="" a:placeholder="Matrícula"/>
-  </div>
-
-  <div class="form-group">
-    <label>Senha</label>
-    <h:inputText id="senha" class="form-control" value="" a:placeholder="Senha"/>
+    <h:outputLabel value="Senha" for="senha"></h:outputLabel>
+    <h:inputSecret id="senha" class="form-control" value="#{atendenteBean.senha}"/>
   </div>
 
 
 
-<h:commandButton value="Salvar" class="btn btn-outline-primary" type="submit" action="#{acao.aqui}" />
-<a class="btn btn-outline-primary" href="adm-postagens-listar.html">Voltar</a>
+    <h:commandButton value="Salvar" class="btn btn-outline-primary" type="submit" action="#{atendenteBean.alterar()}" />
+    <h:link class="btn btn-outline-primary" value="Voltar" outcome="index.xhtml"/>
 </h:form>
     
 </div>
@@ -168,13 +160,6 @@
 
 </main>
 
-              
-
-
-
-
-
-              
             </div>
           </div>
 

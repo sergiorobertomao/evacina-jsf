@@ -1,7 +1,6 @@
 package br.ifam.modelo;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
 public class Atendente implements Serializable {
 
     @Id
-    @GeneratedValue
     private Long id;
     private String nome;
     private String senha;
