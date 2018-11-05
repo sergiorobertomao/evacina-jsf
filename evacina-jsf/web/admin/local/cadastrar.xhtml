@@ -136,21 +136,21 @@
         <h:form>
            <div class="form-group">
               <label>Nome do Local</label>
-              <h:inputText id="NomeDoLocal" class="form-control" value="" a:placeholder="Nome do Local"/>
+              <h:inputText id="NomeDoLocal" class="form-control" value="#{localBean.local}" a:placeholder="Nome do Local"/>
            </div>
 
             <div class="form-group">
               <label>Cidade</label>
-              <h:inputText id="Cidade" class="form-control" value="" a:placeholder="Cidade"/>
+              <h:inputText id="Cidade" class="form-control" value="#{localBean.cidade}" a:placeholder="Cidade"/>
             </div>
 
             <div class="form-group">
               <label>UF</label>
-              <h:inputText id="UF" class="form-control" value="" a:placeholder="UF"/>
+              <h:inputText id="UF" class="form-control" value="#{localBean.uf}" a:placeholder="UF"/>
             </div>
 
 
-           <h:commandButton value="Salvar" class="btn btn-outline-primary" type="submit" action="#{acao.aqui}" />
+            <h:commandButton value="Salvar" class="btn btn-outline-primary" type="submit" action="#{localBean.salva()}" />
            <a class="btn btn-outline-primary" href="adm-postagens-listar.html">Voltar</a>
        </h:form>
         </main>
