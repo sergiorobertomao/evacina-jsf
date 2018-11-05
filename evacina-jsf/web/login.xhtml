@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+   
+    <h:head>
+        <title>E-Vacina</title>
+        <!--CSS-->
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+        <h:outputStylesheet library="css" name="style.css" />
+        <h:outputStylesheet library="css" name="login.css" />
+    </h:head>
+    
+    <h:body>
+    <f:view>
+         <!--TOPO INICIO -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+        <a class="navbar-brand" href="/">
+            <h:graphicImage library="img" name="logo-topo.png"  />
+        </a>
+        
+   
+        
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <h:link outcome="index.xhtml" class="btn btn-outline-light my-2 my-sm-0" value="Voltar">
+                     <i class="fas fa-undo-alt"></i>
+                </h:link>   
+            </ul>
+    </div>
+
+    </nav>
+    <!--TOPO FIM -->
+    <div class="container padding-top">
+
+      <h:form class="form-signin">
+        <p align="center"><h:graphicImage library="img" name="logo-100.png"  /></p>
+        <h:outputLabel for="id" class="sr-only">Matrícula</h:outputLabel>
+        <h:inputText id="id" class="form-control" value="#{atendenteBean.id}" a:placeholder="Matricula" required="true"/>
+        <br></br>
+        <h:outputLabel for="senha" class="sr-only">Senha</h:outputLabel>
+        <h:inputSecret id="senha" class="form-control" value="#{atendenteBean.senha}" a:placeholder="Senha" required="true"/>
+<!--            
+        <div class="checkbox">
+          <label>
+
+                <h:selectBooleanCheckbox value="remember-me"/> Lembrar-me
+          </label>
+        </div>-->
+<h:commandButton class="btn btn-lg btn-primary btn-block" value="Entrar" action="#{atendenteBean.login()}"></h:commandButton>
+      </h:form>
+    </div> 
+
+    </f:view>    
+    </h:body>
+        <!--JS-->
+        <h:outputScript library="js" name="jquery.js" />
+        <h:outputScript library="js" name="bootstrap.min.js" />
+        <h:outputScript library="js" name="fontawesome-all.js" />
+</html>
+
